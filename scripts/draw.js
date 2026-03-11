@@ -31,9 +31,7 @@ function decompressSign(raw) {
     title: raw.t,
     poem: raw.p,
     meaning: raw.m,
-    interpretation: raw.d,
-    fortune: `事业：${career}\n姻缘：${love}\n健康：${health}\n财运：${wealth}`,
-    story: raw.s
+    fortune: `事业：${career}\n姻缘：${love}\n健康：${health}\n财运：${wealth}`
   };
 }
 
@@ -110,14 +108,8 @@ ${sign.poem}
 
 🔮 解曰：${sign.meaning}
 
-📖 详解：
-${sign.interpretation}
-
 ✨ 各方面指引：
 ${sign.fortune}
-
-📚 典故：
-${sign.story}
 
 ═══════════════════════════════════════════
 * 每日一签，诚心则灵 *
