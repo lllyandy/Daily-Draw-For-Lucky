@@ -13,14 +13,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // 数据文件路径 - 使用压缩版
-const SIGNS_FILE = join(__dirname, '..', 'data', 'signs.ultra.json');
+const SIGNS_FILE = join(__dirname, '..', 'data', 'signs.json');
 const RECORD_FILE = join(__dirname, '..', 'data', 'daily_record.json');
 
 /**
  * 解压签文数据
  */
 function decompressSign(raw) {
-  const [career, love, health, wealth] = raw.f.split('|');
+  const parts = (raw.f || '|||').split('|');
+  const career = parts[0] || '平顺';
+  const love = parts[1] || '随缘';
+  const health = parts[2] || '注意';
+  const wealth = parts[3] || '守成';
   return {
     id: raw.i,
     level: raw.l,
