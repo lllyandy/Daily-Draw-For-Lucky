@@ -1,11 +1,15 @@
 ---
-name: guanyin-daily-draw
-description: "每日观音灵签抽签，包含100签完整签文、解曰和典故。每天只能抽取一次，涵盖事业、姻缘、健康、财运等方面指引。使用：输入'抽签'、'帮我抽个签'或'/draw'触发。"
+name: daily-draw-for-lucky
+description: "Daily fortune draw based on Guanyin Oracle (观音灵签). 100 complete oracle sticks with career, love, health, wealth guidance. Once per day. Triggers: 'draw', '/draw', '帮我抽个签', or '抽签'."
 version: "1.0.0"
-author: "Lyandy & 彩椒"
+author: "Lyandy & ColorPepper"
 ---
 
-# 观音灵签 - 每日抽签
+# Daily Draw: For Lucky 🎋
+
+🙏 **Guanyin Oracle - Daily Fortune Telling**
+
+Daily one draw, guidance for life. 100 oracle sticks covering all aspects of life.
 
 🙏 **南无观世音菩萨**
 

@@ -1,130 +1,158 @@
-# 观音灵签 - 每日抽签
+# Daily Draw: For Lucky 🎋
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
+
+🙏 **Daily Fortune Telling based on Guanyin Oracle (观音灵签)**
+
+An elegant daily fortune draw skill featuring 100 complete oracle sticks, interpretations, and historical stories.
+
+[中文说明](#中文说明)
+
+---
+
+## ✨ Features
+
+- 🎋 **100 Complete Oracle Sticks** - From "Great Fortune" to "Great Misfortune"
+- 📜 **Detailed Interpretations** - Poem, meaning, explanation, and historical stories
+- 🎯 **Once Per Day** - One draw per day to maintain the ritual
+- 🔮 **Four Aspects** - Career, Love, Health, Wealth
+- 🎨 **Elegant Output** - Beautiful terminal display format
+
+## 🚀 Installation
+
+### Method 1: OpenClaw Install
+
+```bash
+# Clone to OpenClaw skills directory
+git clone https://github.com/yourusername/daily-draw-for-lucky.git ~/.openclaw/skills/daily-draw-for-lucky
+```
+
+### Method 2: Direct Use
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/daily-draw-for-lucky.git
+
+# Enter directory and run
+cd daily-draw-for-lucky
+node scripts/draw.js
+```
+
+## 🎋 Usage
+
+### In OpenClaw
+
+Trigger phrases:
+- Say: **"draw"**
+- Say: **"帮我抽个签"** (Draw for me)
+- Say: **"/draw"**
+
+### Direct Command Line
+
+```bash
+node scripts/draw.js
+```
+
+## 📖 Oracle Structure
+
+Each stick contains:
+1. **Number** - Stick No.X
+2. **Fortune Level** - Great Fortune / Good Fortune / Neutral / Bad Fortune / Great Misfortune
+3. **Poem** - Four-line poem
+4. **Meaning** - Overall interpretation
+5. **Explanation** - Detailed explanation
+6. **Four Aspects** - Career, Love, Health, Wealth
+7. **Story** - Historical background
+
+## 📊 100 Sticks Distribution
+
+| Level | Count | Description |
+|-------|:----:|------|
+| Great Fortune (上上签) | ~20 | Extremely auspicious, everything goes well |
+| Good Fortune (上签) | ~25 | Auspicious, bright future |
+| Neutral (中签) | ~35 | Mixed, proceed with caution |
+| Bad Fortune (下签) | ~15 | More bad than good, stay defensive |
+| Great Misfortune (下下签) | ~5 | Extremely inauspicious, stay still |
+
+## 🎯 Fortune Guide
+
+### Career
+- **Great/Good Fortune**: Actively pursue opportunities
+- **Neutral**: Stay steady, don't rush
+- **Bad/Great Misfortune**: Stay defensive, wait for timing
+
+### Love
+- **Great/Good Fortune**: Destiny calls, take action
+- **Neutral**: Go with the flow, don't force it
+- **Bad/Great Misfortune**: Fate not arrived, cultivate yourself
+
+### Health
+- **Great/Good Fortune**: Healthy, maintain wellness
+- **Neutral**: Minor issues, balance work and rest
+- **Bad/Great Misfortune**: Rest well, follow doctor's advice
+
+### Wealth
+- **Great/Good Fortune**: Wealth flows in, moderate investment OK
+- **Neutral**: Live within means, invest carefully
+- **Bad/Great Misfortune**: Protect assets, avoid speculation
+
+## 📂 Project Structure
+
+```
+daily-draw-for-lucky/
+├── data/
+│   ├── meta.json          # Skill metadata
+│   └── signs.json         # 100 oracle sticks data
+├── scripts/
+│   └── draw.js            # Draw script
+├── SKILL.md               # Skill main document
+├── README.md              # Project readme
+└── LICENSE                # License
+```
+
+## 🛠️ Technical Details
+
+- **Language**: JavaScript (Node.js)
+- **Data Format**: JSON
+- **Dependencies**: None (Node.js built-in modules only)
+- **Storage**: Local JSON file for daily records
+
+## ⚠️ Notes
+
+1. **Once Per Day** - Only one draw per day, resets next day
+2. **Sincerity Matters** - Sincerely contemplate before drawing
+3. **Reference Only** - Oracle is for reference, life requires your own effort
+4. **Stay Balanced** - Don't be arrogant with good fortune, don't despair with bad
+
+## 📜 License
+
+[MIT License](LICENSE) © Lyandy & ColorPepper
+
+---
+
+## 中文说明
+
+### 观音灵签 - 每日抽签
 
 🙏 **南无观世音菩萨**
 
 一个优雅的每日观音灵签抽签 Skill，包含完整的100签签文、解曰和典故。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
-
-## ✨ 特性
+### ✨ 特性
 
 - 🎋 **100签完整签文** - 涵盖上上签到下下签所有级别
 - 📜 **详细解读** - 每签包含签诗、解曰、详解、典故
 - 🎯 **每日限抽** - 每天只能抽取一次，保持仪式感
 - 🔮 **全方位指引** - 事业、姻缘、健康、财运四大方面
-- 🎨 **优雅输出** - 美观的终端输出格式
 
-## 🚀 安装
-
-### 方法一：OpenClaw 安装
-
-```bash
-# 克隆到 OpenClaw skills 目录
-git clone https://github.com/yourusername/guanyin-daily-draw.git ~/.openclaw/skills/guanyin-daily-draw
-```
-
-### 方法二：直接使用
-
-```bash
-# 克隆仓库
-git clone https://github.com/yourusername/guanyin-daily-draw.git
-
-# 进入目录运行
-cd guanyin-daily-draw
-node scripts/draw.js
-```
-
-## 🎋 使用方法
-
-### OpenClaw 中使用
+### 🎋 使用方法
 
 触发方式：
 - 说：**"抽签"**
 - 说：**"帮我抽个签"**
 - 说：**"/draw"**
 
-### 命令行直接使用
-
-```bash
-node scripts/draw.js
-```
-
-## 📖 签文结构
-
-每支签包含：
-1. **签号** - 第X签
-2. **吉凶** - 上上签/上签/中签/下签/下下签
-3. **签诗** - 四句诗文
-4. **解曰** - 整体解译
-5. **详解** - 详细解释
-6. **各方面指引** - 事业、姻缘、健康、财运
-7. **典故** - 历史故事
-
-## 📊 100签分布
-
-| 等级 | 数量 | 说明 |
-|------|:----:|------|
-| 上上签 | ~20支 | 大吉大利，万事如意 |
-| 上签 | ~25支 | 吉星高照，前途光明 |
-| 中签 | ~35支 | 吉凶参半，谨慎行事 |
-| 下签 | ~15支 | 凶多吉少，守成为上 |
-| 下下签 | ~5支 | 大凶，宜静不宜动 |
-
-## 🎯 解签指南
-
-### 问事业
-- **上上/上签**：积极进取，把握时机
-- **中签**：稳扎稳打，不宜冒进
-- **下/下下签**：守成为上，静待时机
-
-### 问姻缘
-- **上上/上签**：良缘天定，主动出击
-- **中签**：顺其自然，不可强求
-- **下/下下签**：缘分未到，修身养性
-
-### 问健康
-- **上上/上签**：身体康健，注意保养
-- **中签**：小病无碍，劳逸结合
-- **下/下下签**：宜静养，遵医嘱
-
-### 问财运
-- **上上/上签**：财源广进，可适当投资
-- **中签**：量入为出，谨慎理财
-- **下/下下签**：守财为主，不宜投机
-
-## 📂 项目结构
-
-```
-guanyin-daily-draw/
-├── data/
-│   ├── meta.json          # Skill 元数据
-│   └── signs.json         # 100签签文数据
-├── scripts/
-│   └── draw.js            # 抽签脚本
-├── SKILL.md               # Skill 主文档
-├── README.md              # 项目说明
-└── LICENSE                # 许可证
-```
-
-## 🛠️ 技术细节
-
-- **语言**：JavaScript (Node.js)
-- **数据格式**：JSON
-- **依赖**：无（仅使用 Node.js 内置模块）
-- **存储**：本地 JSON 文件记录每日抽签
-
-## ⚠️ 注意事项
-
-1. **每日一签** - 每天只能抽取一次，次日重置
-2. **诚心则灵** - 抽签前请诚心默念所求之事
-3. **仅供参考** - 签文仅供参考，人生还需自己努力
-4. **心态平和** - 吉签不可骄，凶签不可馁
-
-## 📜 许可证
-
-[MIT License](LICENSE) © Lyandy & 彩椒
-
 ---
 
-*愿观音菩萨保佑，所求如愿，平安喜乐* 🙏
+*May Guanyin bless you with peace and happiness* 🙏
