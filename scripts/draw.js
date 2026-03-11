@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * 观音灵签抽签脚本
+ * 观音灵签抽签脚本 - 压缩版
  * 每日限抽一次
  */
 
@@ -12,16 +12,34 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// 数据文件路径
-const SIGNS_FILE = join(__dirname, '..', 'data', 'signs.json');
+// 数据文件路径 - 使用压缩版
+const SIGNS_FILE = join(__dirname, '..', 'data', 'signs.ultra.json');
 const RECORD_FILE = join(__dirname, '..', 'data', 'daily_record.json');
+
+/**
+ * 解压签文数据
+ */
+function decompressSign(raw) {
+  const [career, love, health, wealth] = raw.f.split('|');
+  return {
+    id: raw.i,
+    level: raw.l,
+    title: raw.t,
+    poem: raw.p,
+    meaning: raw.m,
+    interpretation: raw.d,
+    fortune: `事业：${career}\n姻缘：${love}\n健康：${health}\n财运：${wealth}`,
+    story: raw.s
+  };
+}
 
 /**
  * 加载签文数据
  */
 function loadSigns() {
   const data = readFileSync(SIGNS_FILE, 'utf-8');
-  return JSON.parse(data);
+  const rawSigns = JSON.parse(data);
+  return rawSigns.map(decompressSign);
 }
 
 /**
@@ -44,19 +62,19 @@ function checkTodayDrawn() {
   const today = getTodayString();
   
   if (record.date === today) {
-    return { drawn: true, sign: record.sign };
+    return { drawn: true, sign: decompressSign(record.sign) };
   }
   
   return { drawn: false, sign: null };
 }
 
 /**
- * 保存抽签记录
+ * 保存抽签记录（存储压缩格式）
  */
 function saveRecord(sign) {
   const record = {
     date: getTodayString(),
-    sign: sign,
+    sign: { i: sign.id, l: sign.level, t: sign.title, p: sign.poem, m: sign.meaning, d: sign.interpretation, f: sign.fortune.replace(/\\n/g, '|').replace(/[事业姻缘健康财运：]/g, ''), s: sign.story },
     timestamp: new Date().toISOString()
   };
   writeFileSync(RECORD_FILE, JSON.stringify(record, null, 2));
@@ -66,7 +84,6 @@ function saveRecord(sign) {
  * 随机抽取一签
  */
 function drawSign(signs) {
-  // 使用当前日期作为种子，确保同一天抽到相同签
   const today = getTodayString();
   const seed = today.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
   const index = seed % signs.length;
@@ -109,10 +126,7 @@ ${sign.story}
  */
 function main() {
   try {
-    // 加载签文
     const signs = loadSigns();
-    
-    // 检查今日是否已抽
     const { drawn, sign: todaySign } = checkTodayDrawn();
     
     if (drawn) {
@@ -130,13 +144,8 @@ ${todaySign.poem}
       return;
     }
     
-    // 抽签
     const sign = drawSign(signs);
-    
-    // 保存记录
     saveRecord(sign);
-    
-    // 输出结果
     console.log(formatSign(sign));
     
   } catch (error) {
