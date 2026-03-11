@@ -19,23 +19,33 @@ An elegant daily fortune draw skill featuring 100 complete oracle sticks, interp
 - 🔮 **Four Aspects** - Career, Love, Health, Wealth
 - 🎨 **Elegant Output** - Beautiful terminal display format
 
-## 🚀 Installation
+## 🚀 Installation | 安装
 
-### Method 1: OpenClaw Install
+### Quick Install | 快速安装 (OpenClaw)
 
+**Windows:**
 ```bash
-# Clone to OpenClaw skills directory
-git clone https://github.com/yourusername/daily-draw-for-lucky.git ~/.openclaw/skills/daily-draw-for-lucky
+git clone https://github.com/lllyandy/Daily-Draw-For-Lucky.git C:\Users\%USERNAME%\.openclaw\skills\daily-draw-for-lucky
 ```
 
-### Method 2: Direct Use
+**macOS/Linux:**
+```bash
+git clone https://github.com/lllyandy/Daily-Draw-For-Lucky.git ~/.openclaw/skills/daily-draw-for-lucky
+```
+
+**Then restart OpenClaw or run:**
+```bash
+/reload-skills
+```
+
+### Method 2: Direct Use | 直接使用
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/daily-draw-for-lucky.git
+git clone https://github.com/lllyandy/Daily-Draw-For-Lucky.git
 
 # Enter directory and run
-cd daily-draw-for-lucky
+cd Daily-Draw-For-Lucky
 node scripts/draw.js
 ```
 
